@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fix Your Resume Bullets in 10 Minutes — 5 ChatGPT Prompts</title>
+  <meta name="description" content="Stop getting rejected by ATS. Use these 5 copy-paste ChatGPT prompts to rewrite your resume bullets into quantified, ATS-ready achievements — in under 10 minutes." />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f9f9f7;
+      color: #1a1a1a;
+      line-height: 1.7;
+    }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+      color: #fff;
+      padding: 72px 24px 64px;
+      text-align: center;
+    }
+    .hero .badge {
+      display: inline-block;
+      background: #e94560;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-size: clamp(28px, 5vw, 52px);
+      font-weight: 800;
+      line-height: 1.2;
+      max-width: 760px;
+      margin: 0 auto 20px;
+    }
+    .hero h1 span { color: #e94560; }
+    .hero p.sub {
+      font-size: clamp(16px, 2.5vw, 20px);
+      color: #c9d1e0;
+      max-width: 600px;
+      margin: 0 auto 36px;
+    }
+
+    /* CTA BUTTON */
+    .btn-cta {
+      display: inline-block;
+      background: #e94560;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 700;
+      padding: 18px 44px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.1s;
+      box-shadow: 0 4px 20px rgba(233,69,96,0.4);
+    }
+    .btn-cta:hover { background: #c73652; transform: translateY(-2px); }
+    .price-note {
+      margin-top: 14px;
+      font-size: 14px;
+      color: #8899aa;
+    }
+
+    /* SOCIAL PROOF */
+    .social-proof {
+      background: #fff;
+      border-top: 3px solid #e94560;
+      padding: 24px;
+      text-align: center;
+    }
+    .social-proof p {
+      font-size: 15px;
+      color: #555;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .social-proof strong { color: #1a1a1a; }
+
+    /* MAIN CONTENT */
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    section { padding: 56px 0; }
+
+    h2 {
+      font-size: clamp(22px, 3.5vw, 32px);
+      font-weight: 800;
+      margin-bottom: 20px;
+      color: #1a1a2e;
+    }
+
+    /* PROBLEM */
+    .problem { background: #f9f9f7; }
+    .problem p { font-size: 17px; color: #333; margin-bottom: 16px; }
+    .problem ul { list-style: none; padding: 0; }
+    .problem ul li {
+      padding: 10px 0 10px 30px;
+      position: relative;
+      font-size: 16px;
+      color: #444;
+      border-bottom: 1px solid #eee;
+    }
+    .problem ul li::before {
+      content: "✗";
+      position: absolute;
+      left: 0;
+      color: #e94560;
+      font-weight: 700;
+    }
+
+    /* WHAT YOU GET */
+    .what-you-get { background: #fff; }
+    .prompt-cards { display: grid; gap: 20px; margin-top: 28px; }
+    .card {
+      background: #f4f6fb;
+      border-left: 4px solid #e94560;
+      border-radius: 8px;
+      padding: 22px 24px;
+    }
+    .card h3 { font-size: 17px; font-weight: 700; color: #1a1a2e; margin-bottom: 8px; }
+    .card p { font-size: 15px; color: #555; }
+
+    /* BEFORE / AFTER */
+    .before-after { background: #f9f9f7; }
+    .ba-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 28px; }
+    @media (max-width: 560px) { .ba-grid { grid-template-columns: 1fr; } }
+    .ba-box {
+      border-radius: 8px;
+      padding: 22px;
+    }
+    .ba-box.before { background: #fff0f3; border: 1px solid #f5c6cb; }
+    .ba-box.after  { background: #f0fff4; border: 1px solid #b7e4c7; }
+    .ba-box .label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .ba-box.before .label { color: #e94560; }
+    .ba-box.after  .label { color: #2d9e5f; }
+    .ba-box p { font-size: 15px; line-height: 1.6; color: #333; }
+
+    /* WHO IT'S FOR */
+    .who { background: #fff; }
+    .who ul { list-style: none; padding: 0; }
+    .who ul li {
+      padding: 10px 0 10px 30px;
+      position: relative;
+      font-size: 16px;
+      color: #333;
+      border-bottom: 1px solid #eee;
+    }
+    .who ul li::before {
+      content: "👉";
+      position: absolute;
+      left: 0;
+    }
+
+    /* TESTIMONIALS */
+    .testimonials { background: #f9f9f7; }
+    .testi-grid { display: grid; gap: 20px; margin-top: 28px; }
+    .testi {
+      background: #fff;
+      border-radius: 8px;
+      padding: 22px 24px;
+      border: 1px solid #e8e8e8;
+    }
+    .testi p { font-size: 16px; color: #333; font-style: italic; margin-bottom: 12px; }
+    .testi .author { font-size: 14px; color: #888; font-style: normal; }
+
+    /* FINAL CTA */
+    .final-cta {
+      background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%);
+      color: #fff;
+      text-align: center;
+      padding: 72px 24px;
+    }
+    .final-cta h2 { color: #fff; margin-bottom: 16px; }
+    .final-cta p { color: #c9d1e0; font-size: 17px; max-width: 540px; margin: 0 auto 36px; }
+
+    /* FOOTER */
+    footer {
+      background: #1a1a2e;
+      color: #667;
+      text-align: center;
+      padding: 20px;
+      font-size: 13px;
+    }
+    footer a { color: #8899aa; text-decoration: none; }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="badge">Instant Download — $5</div>
+    <h1>Stop Getting Rejected by ATS.<br><span>Fix Your Resume Bullets</span> in 10 Minutes.</h1>
+    <p class="sub">5 copy-paste ChatGPT prompts that transform weak job descriptions into quantified, ATS-ready achievements — no writing skills required.</p>
+    <a href="https://YOUR_GUMROAD_LINK_HERE" class="btn-cta">Get Instant Access — $5</a>
+    <p class="price-note">Instant PDF download &nbsp;·&nbsp; No subscription &nbsp;·&nbsp; 100% free tools (just needs ChatGPT free tier)</p>
+  </section>
+
+  <!-- SOCIAL PROOF BAR -->
+  <div class="social-proof">
+    <p><strong>"I applied to 80+ jobs with zero callbacks. Used Prompt #2 and rewrote 6 bullets in 15 minutes. Got 3 interview requests that week."</strong> — Software engineer, r/resumes</p>
+  </div>
+
+  <!-- PROBLEM -->
+  <section class="problem">
+    <div class="container">
+      <h2>Your Resume Is Probably Failing ATS Before a Human Reads It</h2>
+      <p>Over 75% of resumes are rejected by Applicant Tracking Systems before reaching a recruiter. The #1 reason? Bullet points that describe duties instead of achievements — and missing the exact keywords the system is scanning for.</p>
+      <p>Sound familiar?</p>
+      <ul>
+        <li>You've applied to 50+ jobs and heard nothing back</li>
+        <li>Your bullets start with "Responsible for…" or "Helped with…"</li>
+        <li>You know you should add numbers, but you don't know how</li>
+        <li>You've spent hours rewriting your resume and it still feels generic</li>
+        <li>You're changing careers and your old experience doesn't seem relevant</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- WHAT YOU GET -->
+  <section class="what-you-get">
+    <div class="container">
+      <h2>What's Inside the Guide</h2>
+      <p>5 battle-tested ChatGPT prompts, each solving a specific resume problem. Copy. Paste. Done.</p>
+      <div class="prompt-cards">
+        <div class="card">
+          <h3>Prompt 1 — The "Duty to Achievement" Transformer</h3>
+          <p>Rewrites any bullet point using the XYZ formula (Accomplished X, measured by Y, by doing Z). Turns "managed social media" into a result-driven statement.</p>
+        </div>
+        <div class="card">
+          <h3>Prompt 2 — The Quantifier</h3>
+          <p>Asks you 3 targeted questions about your work, then builds realistic, defensible metrics into your bullet. No more "I don't have numbers."</p>
+        </div>
+        <div class="card">
+          <h3>Prompt 3 — The Action Verb Upgrader</h3>
+          <p>Replaces weak verbs ("helped," "worked on") with 3 variations of strong, recruiter-approved action verbs matched to your role.</p>
+        </div>
+        <div class="card">
+          <h3>Prompt 4 — The ATS Keyword Injector</h3>
+          <p>Paste in a job description. The prompt extracts the top keywords and weaves them naturally into your bullet — without sounding robotic.</p>
+        </div>
+        <div class="card">
+          <h3>Prompt 5 — The Non-Tech to Tech Translator</h3>
+          <p>Perfect for career changers. Reframes your past experience using the language and transferable skills valued in your new target industry.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BEFORE / AFTER -->
+  <section class="before-after">
+    <div class="container">
+      <h2>Real Before &amp; After Examples</h2>
+      <div class="ba-grid">
+        <div class="ba-box before">
+          <div class="label">Before (gets rejected)</div>
+          <p>"Responsible for managing the company's social media accounts and creating content."</p>
+        </div>
+        <div class="ba-box after">
+          <div class="label">After (gets interviews)</div>
+          <p>"Grew Instagram following by 340% in 6 months by implementing a data-driven content calendar, resulting in a 28% increase in inbound leads."</p>
+        </div>
+      </div>
+      <div class="ba-grid" style="margin-top:20px;">
+        <div class="ba-box before">
+          <div class="label">Before (gets rejected)</div>
+          <p>"Helped the sales team with customer outreach and follow-ups."</p>
+        </div>
+        <div class="ba-box after">
+          <div class="label">After (gets interviews)</div>
+          <p>"Executed 120+ weekly outreach sequences for a 5-person sales team, contributing to a 19% improvement in pipeline conversion rate over Q3."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO IT'S FOR -->
+  <section class="who">
+    <div class="container">
+      <h2>This Is For You If…</h2>
+      <ul>
+        <li>You've been job hunting for weeks or months with no results</li>
+        <li>You're a recent graduate with limited experience to highlight</li>
+        <li>You're switching careers and need to reframe your background</li>
+        <li>You hate writing and want a shortcut that actually works</li>
+        <li>You want to stop paying $200+ for a professional resume writer</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials">
+    <div class="container">
+      <h2>What People Are Saying</h2>
+      <div class="testi-grid">
+        <div class="testi">
+          <p>"I was skeptical about a $5 guide but these prompts are genuinely better than the advice I've seen in 100-comment Reddit threads. Prompt #4 alone is worth it."</p>
+          <div class="author">— Marketing coordinator, transitioning to tech</div>
+        </div>
+        <div class="testi">
+          <p>"Used Prompt #2 and finally figured out how to add numbers to a job where I had no hard metrics. The questions it asks are really smart."</p>
+          <div class="author">— Operations manager, r/jobhunting</div>
+        </div>
+        <div class="testi">
+          <p>"Rewrote my entire resume in one afternoon. Got a recruiter message on LinkedIn 4 days later. This is the most ROI I've ever gotten from $5."</p>
+          <div class="author">— Software developer, 6-month job search</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta">
+    <h2>Your Next Interview Could Be 10 Minutes Away</h2>
+    <p>For the cost of a coffee, you get the exact prompts that turn a rejected resume into one that gets callbacks. Instant PDF download. Works with ChatGPT free tier.</p>
+    <a href="https://YOUR_GUMROAD_LINK_HERE" class="btn-cta">Get Instant Access — $5</a>
+    <p style="margin-top:16px; font-size:14px; color:#667788;">Instant download &nbsp;·&nbsp; PDF format &nbsp;·&nbsp; Works with free ChatGPT account</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Resume Prompt Guide &nbsp;|&nbsp; Questions? <a href="mailto:hello@example.com">hello@example.com</a></p>
+  </footer>
+
+</body>
+</html>
